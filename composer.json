@@ -1,0 +1,37 @@
+{
+  "name": "reflar/traditional-rank-icons",
+  "description": "Replace circle badges with rank-styled badges",
+  "keywords": [
+    "flarum"
+  ],
+  "type": "flarum-extension",
+  "license": "MIT",
+  "require": {
+    "flarum/core": "^0.1.0-beta-8"
+  },
+  "authors": [
+    {
+      "name": "David Sevilla Martin",
+      "email": "david.s@redevs.org",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Reflar\\TraditionalRankIcons\\": "src/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "ReFlar Traditional Rank Icons",
+      "icon": {
+        "name": "fas fa-certificate",
+        "backgroundColor": "#263238",
+        "color": "#FFF"
+      }
+    },
+    "flagrow": {
+      "discuss": ""
+    }
+  }
+}
