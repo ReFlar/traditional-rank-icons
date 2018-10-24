@@ -64,9 +64,10 @@ app.initializers.add('reflar/traditional-rank-icons', () => {
     });
 
     extend(PostUser.prototype, 'view', function(view) {
-        const badges = this.props.post.user().badges().toArray();
+        const user = this.props.post.user();
+        const badges = user && user.badges().toArray();
 
-        if (!badges.length) return view;
+        if (!badges || !badges.length) return view;
 
         view.children = view.children.filter(i => !i.attrs || i.attrs.className !== 'PostUser-badges badges');
 
