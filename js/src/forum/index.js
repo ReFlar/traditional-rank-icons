@@ -22,7 +22,10 @@ app.initializers.add('reflar/traditional-rank-icons', () => {
         const groups = this.groups();
 
         groups.forEach(group => {
-            items.add(`group${group.id()}`, RankBadge.component({ group }));
+            items.add(`group${group.id()}`, RankBadge.component({
+                group,
+                style: app.data['reflar-traditional-rank-icons.style'] || 'default',
+            }));
         });
 
         return items;
@@ -50,7 +53,6 @@ app.initializers.add('reflar/traditional-rank-icons', () => {
                 ];
 
                 if (i.children[0].tag === 'a') {
-                    console.log(i.children[0]);
                     i.children[0].children[1] = els;
                 } else {
                     i.children[1] = els;
@@ -77,9 +79,7 @@ app.initializers.add('reflar/traditional-rank-icons', () => {
 
         if (!username) return view;
 
-        link.children.splice(1, 0,
-            <ul className="PostUser-badges badges">{listItems(badges)}</ul>
-        );
+        link.children.splice(1, 0, <ul className="PostUser-badges badges">{listItems(badges)}</ul>);
         return view;
     });
 });

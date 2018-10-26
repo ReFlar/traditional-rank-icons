@@ -1,0 +1,23 @@
+.RankBadge {
+  @color: var(--badge-color);
+
+  padding: 1px 8px;
+  margin-right: 5px;
+  text-transform: uppercase;
+  border: 1px solid @color;
+
+  &.RankBadge--default {
+    color: @color;
+  }
+
+  &.RankBadge--filled {
+    background-color: @color;
+    border-radius: 2px;
+
+    span {
+      color: @color;
+      -webkit-filter: invert(100%);
+      filter: invert(100%);
+    }
+  }
+}

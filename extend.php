@@ -12,9 +12,18 @@
 namespace Reflar\TraditionalRankIcons;
 
 use Flarum\Extend;
+use Flarum\Frontend\HtmlDocument;
 
 return [
     (new Extend\Frontend('forum'))
         ->js(__DIR__.'/js/dist/forum.js')
-        ->css(__DIR__.'/resources/less/forum.less'),
+        ->css(__DIR__ . '/resources/less/forum.less')
+        ->css(__DIR__ . '/resources/less/common.less')
+        ->content(function (HtmlDocument $document) {
+            $key = 'reflar-traditional-rank-icons.style';
+            $document->payload[$key] = app('flarum.settings')->get($key);
+        }),
+    (new Extend\Frontend('admin'))
+        ->js(__DIR__.'/js/dist/admin.js')
+        ->css(__DIR__ . '/resources/less/common.less'),
 ];
